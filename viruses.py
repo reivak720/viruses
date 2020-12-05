@@ -446,9 +446,9 @@ def simulationWithDruga(numViruses, maxPop, maxBirthProb, clearProb, resistances
         patient.addPrescription('guttagonol')
         result2 = [[patient.update(), patient.getResistPop(['guttagonol'])] for _ in range(150)]
         pop += pylab.concatenate((result1, result2))
-    pop = pylab.transpose(pop)
-    pylab.plot(pop[0]/numTrials, label = "avg_pop")
-    pylab.plot(pop[1]/numTrials, label = "resistant_pop")
+    pop = pylab.transpose(pop)/numTrials
+    pylab.plot(pop[0], label = "avg_pop")
+    pylab.plot(pop[1], label = "resistant_pop")
     pylab.title("ResistantVirus Simulation")
     pylab.xlabel("Time Steps")
     pylab.ylabel("Average Virus Population")
